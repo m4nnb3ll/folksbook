@@ -1,0 +1,205 @@
+@import url("./buttons.css");
+@import url("./convo.css");
+@import url("./home.css");
+@import url("./lists.css");
+@import url("./loading.css");
+@import url("./modal.css");
+@import url("./navbar.css");
+@import url("./pie.css");
+@import url("./post-pannel.css");
+@import url("./post.css");
+@import url("./profile.css");
+@import url("./shadow-scroll.css");
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+:root {
+  box-sizing: border-box;
+  --family: "Metropolis", "Ubuntu", "sans-serif";
+  font-family: var(--family);
+  font-size: 16px;
+  /* Colors */
+  --first-color: #0D828F;
+  --second-color: #2ACADB;
+  --second-color-s: hsl(186, 100%, 51%);/*saturated*/
+  --third-color: #d6d9da;
+  --fourth-color: #fff;
+  --last-color: hsl(186, 55%, 10%);
+  /* Spaces */
+  --space0: .5rem;
+  --space1: 1rem;
+  --space2: 1.5rem;
+  --space3: 2rem;
+  --space4: 2.5rem;
+  --space5: 3rem;
+  /* Font Sizes */
+  --heading-1: calc(1.7rem + 1vw);
+  --heading-2: calc(1.375rem + 1vw);
+  --heading-3: calc(1.1rem + 1vw);
+  --txt-large: calc(.9rem + 1vw);
+  --txt-normal: calc(.7rem + 1vw);
+  --txt-small: calc(.35rem + 1vw);
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus
+, ::before:focus
+, ::after:focus {
+  outline: none !important;
+}
+
+body {
+  background-color: var(--third-color);
+  font-size: var(--txt-normal);
+  color: var(--first-color);
+}
+
+/* GLOBAL */
+img {
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+}
+
+h1, .h1 {
+  font-size: var(--heading-1);
+}
+
+h2, .h2 {
+  font-size: var(--heading-2);
+}
+
+h3, .h3 {
+  font-size: var(--heading-3);
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+.on-bg-txt {/* for text shown above a background */
+  color: var(--fourth-color);
+  text-shadow: 0 .05em 0.15em #000b;
+}
+
+.error {
+  color: red;
+}
+
+.txt-op {
+  color: var(--last-color);
+}
+
+.txt-small {
+  font-size: var(--txt-small);
+}
+
+.txt-large {
+  font-size: var(--txt-large);
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.fcenter {/* flex center */
+  justify-content: center;
+}
+
+.block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.owl-stacker-1 > * + * {
+  margin-top: var(--space1);
+}
+
+.owl-stacker-2 > * + * {
+  margin-top: var(--space2);
+}
+
+.owl-stacker-3 > * + * {
+  margin-top: var(--space3);
+}
+
+input[type="text"]
+, input[type="password"]
+, input[type="email"]
+, textarea {
+  font-size: var(--txt-normal);
+  font-family: inherit;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container.small
+, .container.med {
+  max-width: 39rem;
+}
+
+@media only screen and (min-width: 52rem) {
+  .container.med { max-width: 45rem }
+}
+
+.container.large {
+  --padding-v: var(--space3);
+  padding: var(--padding-v) 0;
+}
+
+@media only screen and (min-width: 48rem) {
+  .container.large {
+    --padding-h: var(--space1);
+    padding: var(--padding-v) var(--padding-h);
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .container.large {
+    --padding-h: 0;
+    max-width: 1200px;
+  }
+}
+
+.container.profile {
+  padding: initial;
+}
+
+.timestamp { /* make sure to "position: relative;" its parent */
+  position: absolute;
+  top: .5em;right: .5em;
+  margin: initial;
+  color: var(--second-color);
+}
+
+.comment .timestamp {
+  right: 3rem;
+}

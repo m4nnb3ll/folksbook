@@ -1,0 +1,32 @@
+@keyframes spin {
+  to { transform: rotate(.5turn) }
+}
+
+@keyframes bg {
+  50% {
+    background: var(--second-color);
+  }
+}
+
+.pie {
+  width: inherit;height: inherit;
+  border-radius: 50%;
+  background-color: var(--fourth-color);
+  background-image: linear-gradient(to right, #0000 50%, var(--second-color) 0 );
+  position: relative;
+}
+
+.pie::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  height: 100%; width: 50%;
+  background-color: inherit;
+  border-radius: 0 100% 100% 0 / 50%;
+  transform-origin: left;
+  /* infinite to start with the after 50% part */
+  animation:  spin 50s linear infinite
+              , bg 100s step-end infinite;
+  animation-delay: inherit;
+  animation-play-state: paused;
+}

@@ -1,0 +1,25 @@
+.modal-wrapper {
+  z-index: 3; /* to be atop navbar which has z-index: 2; */
+  display: none;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: #0003;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper.active {
+  display: flex;
+}
+
+.modal-wrapper.danger {
+  color: red;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: .5em;
+  text-align: center;
+}

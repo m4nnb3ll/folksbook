@@ -1,0 +1,262 @@
+.navbar {
+  position: sticky;
+  z-index: 2;/* because of splide */
+  top: 0;
+  padding: var(--space1);
+  background-color: var(--first-color);
+  box-shadow: 0 .5em .5em -.5em #0005;
+}
+
+.nav-tools {
+  margin: calc(-1 * var(--space1));
+}
+
+.nav-tools > .container.large {
+  display: flex;
+  min-height: calc(var(--space4) + 2vw);
+  position: relative; /* for tool-list-wrapper */
+  padding: initial;
+}
+
+.nav-tool {
+  flex: 1;
+}
+
+@media only screen and (min-width: 52rem) {
+  .nav-tool.search {
+    flex: 4;
+  }
+}
+
+.nav-tool-icon {
+  font-size: calc(var(--txt-normal) + 1vw);
+  height: 100%; /* to span the height of the nav-icons */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--fourth-color);
+  cursor: pointer;
+}
+
+.nav-tool-icon > i {
+  position: relative; /* for ::after below */
+}
+
+.nav-tool-icon > i::after {
+  content: var(--count);
+  display: block;
+  padding: .3em;
+  color: var(--fourth-color);
+  position: absolute;
+  top: -.8em;right: -.8em;
+  font-size: var(--txt-small);
+  font-family: var(--family);
+  border-radius: 1em;
+  background: var(--counter-bg);
+}
+
+.nav-tool.active .nav-tool-icon {
+  color: var(--first-color);
+  background-color: var(--fourth-color);
+}
+
+@media only screen and (min-width: 52rem) {
+  .nav-tool.search .nav-tool-icon {
+    display: none;
+  }
+}
+
+.tool-list-wrapper {
+  display: none;
+  position: absolute;
+  left: 0;right: 0;
+  box-shadow: 0 .5em 1em #0003;
+  background-color: var(--fourth-color);
+}
+
+@media only screen and (min-width: 52rem) {
+  .tool-list-wrapper {
+    right: 0;left: initial;
+    width: calc((100%/ 9) * 4);
+    box-shadow: 0 .5em 1em #0003;
+  }
+
+  .nav-tool.search .tool-list-wrapper {
+    display: block;
+    /* height 100% to span the height of navbar */
+    height: 100%;
+    position: relative; /* to override position absolute */
+    /* to counteract the generalizing ".tool-list-wrapper" rules */
+    width: initial;
+    box-shadow: initial;
+  }
+}
+
+.nav-tool.active .tool-list-wrapper {
+  display: block;
+}
+
+.search-input-wrapper {
+  background-color: var(--third-color);
+  padding: var(--space0) 0;
+  display: flex;
+  position: relative; /* for the icon */
+}
+
+@media only screen and (min-width: 52rem) {
+  .search-input-wrapper {
+    background-color: initial;  
+    padding: initial;
+    height: 100%;
+    border: 1px solid var(--first-color);
+  }
+
+  .search-input-wrapper > input[type="text"] {
+    height: 100%;
+  }
+}
+
+.search-input-wrapper input[type="text"] {
+  width: 100%;
+  border: none;
+  padding: var(--space0) var(--space3);
+}
+
+@media only screen and (min-width: 40rem) {
+  .search-input-wrapper input[type="text"] {
+    padding-left: var(--space5);
+  }
+}
+
+.search-input-wrapper input[type="text"]:focus {
+  box-shadow: inset 0 0 .1em var(--first-color);
+}
+
+.search-input-wrapper::after {
+  content: "";
+  display: block;
+  --size: 1em;
+  width: var(--size);
+  height: var(--size);
+  background-image: url("../../public/icons/search.svg");
+  position: absolute;
+  top: calc((100% / 2) - var(--size) / 2); /* to center vertically */
+  left: calc(var(--size) / 2);
+}
+
+.tool-list {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tool-list > :nth-child(1) {/* to make the list wrapper span the whole height */
+  flex: 1;
+}
+
+@media only screen and (min-width: 52rem) {
+  .nav-tool.search .tool-list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 .5em 1em #0003;
+    background: inherit;
+  }
+
+  .nav-tool.search.active .tool-list {
+    display: flex;
+  }
+}
+
+.tool-list-items {
+  overflow-y: auto;
+  max-height: 300px;
+  --padding-v: var(--space0); --padding-h: var(--space0);
+  padding: var(--padding-v) var(--padding-h);
+}
+
+@media only screen and (min-width: 52rem) {
+  .tool-list-items {
+    --padding-v: var(--space1); --padding-h: var(--space1);
+  }
+}
+
+.tool-list-items::after { /* padding doesn't show on "overflow-y: auto"-FF */
+  content: "";
+  display: block;
+  height: var(--padding-v);
+}
+
+.hamburger .tool-list-items::before
+, .hamburger .tool-list-items::after {
+  content: initial;
+}
+
+.tool-list-item {
+  --padding-v: var(--space1);--padding-h: var(--space1);
+  padding: var(--padding-v) var(--padding-h);
+  background-color: var(--third-color);
+  position: relative;/* for timestamp */
+}
+
+.tool-list-item.with-timestamp {
+  padding-bottom: var(--space2);
+}
+
+.tool-list-item + .tool-list-item {
+  margin-top: var(--space1);
+}
+
+.tool-list-item > * + * {
+  --stack-space: var(--space1);
+  margin-top: var(--stack-space);
+}
+
+.user-link {
+  display: flex;
+  align-items: center;
+  column-gap: var(--space1);
+  margin-top: initial;/* to override ruleset above */
+}
+
+.link-img {
+  display: block;
+  flex-shrink: 0;
+  --size: 7em;
+  border-radius: 50%;
+  width: var(--size);
+  height: var(--size);
+  background: center / cover no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.467)), url(../../public/icons/user-circle.svg);
+}
+
+.user-txt {
+  word-break: break-word; /* to break long words */
+}
+
+.user-txt.center {
+  text-align: center;
+}
+
+.user-txt > :nth-child(1) {
+  color: var(--first-color);
+}
+
+.msg {
+  display: block; /* to avoid "display: inline" of <a> */
+  padding: var(--space1);
+  background-color: var(--fourth-color);
+}
+
+.notif-link {
+  display: flex;
+  align-items: center;
+  column-gap: var(--space1);
+  margin: calc(-1 * var(--padding));
+}
+
+.notif-txt {
+  padding: var(--space1);
+  padding-left: initial; /* because there is col gap */
+}

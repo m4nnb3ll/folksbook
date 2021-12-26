@@ -1,0 +1,40 @@
+.posts > * + * {
+  margin-top: var(--space3);
+}
+
+.post {
+  --padding-v: var(--space1);--padding-h: var(--space0);
+  padding: var(--padding-v) var(--padding-h);
+  background-color: var(--fourth-color);
+  position: relative; /* for trash button */
+  --splide-height: 15rem;/* style for Splide */
+}
+
+@media only screen and (min-width: 48rem) {
+  .post {
+    --padding-v: var(--space2);--padding-h: var(--space2);
+    --splide-height: 22rem;/* style for Splide */
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .post {
+    --splide-height: 30rem;/* style for Splide */
+  }
+}
+
+.post-details {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space0);
+  color: var(--second-color);
+  border-top: 1px solid var(--second-color);
+  margin-left: calc(-1 * var(--padding-h));
+  margin-right: calc(-1 * var(--padding-h));
+}
+
+.comment {
+  background-color: var(--fourth-color);
+  padding: var(--space2);
+  position: relative; /* for .timestamp */
+}

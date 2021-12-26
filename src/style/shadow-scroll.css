@@ -1,0 +1,57 @@
+.shadow-scroll {
+  position: relative;/* for pseudo elements */
+  z-index: 0;
+  overflow: hidden;/* to prevent overflowing of pseudo-element when negatively positioned */
+  --length: .5em;
+  --shadow-color: #0005;
+}
+
+.shadow-scroll::before
+, .shadow-scroll::after {
+  z-index: 1;
+  content: "";
+  display: block;
+  position: absolute;
+  top:calc(-1 * var(--length));left:0;right:0;
+  height: var(--length);
+  background: #0000;
+  box-shadow: 0 var(--length) var(--length) var(--shadow-color);
+  border-radius: 50%;
+}
+
+.shadow-scroll::after {
+  top:initial;bottom:calc(-1 * var(--length));
+  box-shadow: 0 calc(-1 * var(--length)) var(--length) var(--shadow-color);
+}
+
+/* DYNAMIC */
+.shadow-scroll.dynamic::before
+, .shadow-scroll.dynamic::after {
+  height: initial;
+  width: var(--length);
+  left:calc(-1 * var(--length));top:0;bottom:0;right: initial;
+  box-shadow: var(--length) 0 var(--length) var(--shadow-color);
+}
+
+.shadow-scroll.dynamic::after {
+  left:initial;right:calc(-1 * var(--length));
+  box-shadow: calc(-1 * var(--length)) 0 var(--length) var(--shadow-color);
+}
+/* DYNAMIC END*/
+
+.shadow-scroll.nav { --length: .25em }/* reducing shadow in nav */
+
+@media only screen and (min-width: 52rem) {
+  .shadow-scroll.dynamic::before
+  , .shadow-scroll.dynamic::after {
+    width: initial;
+    height: var(--length);
+    bottom:initial;top:calc(-1 * var(--length));left:0;right:0;
+    box-shadow: 0 var(--length) var(--length) var(--shadow-color);
+  }
+
+  .shadow-scroll.dynamic::after {
+    top:initial;bottom:calc(-1 * var(--length));
+    box-shadow: 0 calc(-1 * var(--length)) var(--length) var(--shadow-color);
+  }
+}

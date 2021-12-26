@@ -1,0 +1,120 @@
+/* SCROLL LIST */
+
+.scroll-list {
+  background-color: var(--fourth-color);
+  overflow-x: auto;
+  display: flex;
+  padding: var(--space1) 0;
+  position: relative;/* for ::before & ::after */
+}
+
+@media only screen and (min-width: 52rem) {
+  .scroll-list {
+    display: block;
+    max-height: 100vh;
+    overflow-x: initial;
+    overflow-y: auto;
+    padding: 0 var(--space1);/* to give space for Scrollbar */
+  }
+}
+
+.scroll-list > * + * {
+  margin-left: var(--space1);
+}
+
+@media only screen and (min-width: 52rem) {
+  .scroll-list > * + * {
+    margin-left: initial;
+    margin-top: var(--space3);
+  }
+}
+
+.scroll-list-item {
+  --padding-v:  initial;--padding-h: initial;
+  flex: 1 0 80%;
+  min-width: max-content;
+  max-width: 22rem;
+}
+
+@media only screen and (min-width: 52rem) {
+  .scroll-list-item {
+    max-width: initial;
+  }
+}
+
+.scroll-list-item, .friend {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: center / cover no-repeat;
+}
+
+.scroll-list-item > a, .friend > a { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.scroll-list-item > a > p
+, .friend > a > p { 
+  margin-left: .5em;
+  margin-bottom: .5em;
+}
+
+/* SCROLL LIST END */
+
+
+/* RESULTS LIST */
+
+.results-list-wrapper {
+  background-color: var(--fourth-color);
+  padding: var(--space0);
+}
+
+@media only screen and (min-width: 48rem) {
+  .results-list-wrapper {
+    padding: var(--space1);
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .results-list-wrapper {
+    padding: var(--space2);
+  }
+}
+
+.results-list-wrapper > * + * {
+  margin-top: var(--space3);
+}
+
+.results-list > * + * {
+  margin-top: var(--space3);
+}
+
+/* RESULTS LIST END */
+
+
+/* FRIENDS LIST */
+
+.friends-list {
+  display: grid;
+  grid-template-columns: minmax(auto, 19rem);
+  justify-content: space-evenly;
+  gap: var(--space1);
+}
+
+@media only screen and (min-width: 48rem) {
+  .friends-list {
+    grid-template-columns: repeat(2, minmax(auto, 23rem));
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .friends-list {
+    grid-template-columns: repeat(3, minmax(auto, 25rem));
+  }
+}
+
+/* FRIENDS LIST END */

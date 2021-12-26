@@ -1,0 +1,37 @@
+.loading-page {
+  height: 100vh;
+  background-image: url("../../public/logos/Folksbook-logo.svg");
+  background-color: var(--first-color);
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-circle {
+  --size: 3vw;
+  --bsize: calc(1/3 * var(--size));
+  width: var(--size);height: var(--size);
+  background: #0000;
+  border: var(--bsize) solid var(--first-color);
+  border-right: var(--bsize) solid var(--second-color);
+  border-top-color: #0000;
+  border-bottom-color: #0000;
+  border-radius: 50%;
+  animation: loading 1s ease-in-out infinite;
+  margin: var(--space5) auto;
+}
+
+.loading-circle.inline {
+  display: inline-block;
+  margin: 0 0 0 1em;
+  border-left-color: var(--second-color);
+}

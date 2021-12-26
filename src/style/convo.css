@@ -1,0 +1,101 @@
+.convo-top {
+  display: flex;
+  align-items: center;
+  background-color: var(--fourth-color);
+  border-bottom: 1px solid var(--third-color);
+  padding: var(--space0);
+}
+
+@media only screen and (min-width: 48rem) {
+  .convo-top {
+    border-bottom-width: 2px;
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .convo-top {
+    border-bottom-width: 3px;
+  }
+}
+
+.convo-top .link-img {
+  --size: 6em;
+}
+
+.online-circle {
+  color: rgb(6, 207, 32);
+  margin: 0 .5em;
+}
+
+.convo {
+  --padding: var(--space2);
+  padding: var(--padding);
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--fourth-color);
+  --splide-height: 10rem;/* for Splide */
+}
+
+@media only screen and (min-width: 52rem) {
+  .convo {
+    --splide-height: 20rem;/* for Splide */
+  }
+}
+
+.convo-btm {
+  margin-top: 0;
+  height: var(--padding); /* for Firefox */
+}
+
+.msg-bubble {
+  --background-color: var(--third-color);
+  --border-radius: var(--space1);
+  padding: var(--space1);
+  padding-bottom: var(--space3);/* for ".timestamp" */
+  color: var(--fifth-color);
+  background-color: var(--background-color);
+  width: 80%;
+  border-radius: var(--border-radius);
+  border-bottom-left-radius: initial;
+  position: relative;
+}
+
+.msg-bubble > * {
+  margin-top: var(--space1);
+}
+
+.msg-bubble.mine {
+  --background-color: var(--second-color);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: initial;
+  margin-left: auto;
+}
+
+.msg-bubble::after {
+  --border-width: 1rem;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: calc(-1 * var(--border-width)); /*  each side has a border-width of var(--border-width) */
+  bottom: 0;
+  border: var(--border-width) solid #0000;
+  border-bottom-color: var(--background-color);
+}
+
+.msg-bubble.mine::after {
+  left: initial;
+  right: calc(-1 * var(--border-width)); /* each side has a border-width of var(--border-width) */
+}
+
+.msg-bubble > .timestamp {
+  left: var(--space1);top: initial;
+  bottom: var(--space0);
+  color: var(--first-color);
+}
+
+.msg-bubble.mine > .timestamp {
+  left: initial;
+  right: var(--space1);
+}

@@ -1,0 +1,34 @@
+.welcome {
+  padding: var(--space2);
+  height: 100%;
+  background: var(--fourth-color);
+}
+
+.dialogue > * + * {
+  margin-top: var(--space0);
+}
+
+.main > .container.large > * + * {
+  margin-top: var(--space3);
+}
+
+@media only screen and (min-width: 52rem) {
+  .main > .container.large {
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+    column-gap: var(--space3);
+    justify-content: space-between;
+  }
+  
+  .main > .container.large > .scroll-list-wrapper {
+    grid-column: 2/3;
+  }
+  
+  .main > .container.large > .pannel-posts-wrapper {
+    grid-row: 1/2;
+  }
+
+  .main > .container.large > * + * {
+    margin-top: initial;/* because of grid gap */
+  }
+}

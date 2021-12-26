@@ -1,0 +1,136 @@
+.pannel-posts-wrapper {
+  max-width: 39rem;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 52rem) {
+  .pannel-posts-wrapper {
+    max-width: 45rem;
+    margin: initial;
+  }
+}
+
+.pannel-posts-wrapper > * + * {
+  margin-top: var(--space3);
+}
+
+.post-pannel {
+  background-color: var(--fourth-color);
+  color: var(--fourth-color);
+  overflow: hidden; /* to prevent margin collapse */
+}
+
+.post-pannel > * {
+  padding: var(--space1) var(--space0);
+}
+
+@media only screen and (min-width: 48rem) {
+  .post-pannel > * {
+    padding: var(--space1) var(--space1);
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .post-pannel > * {
+    padding: var(--space1) var(--space2);
+  }
+}
+
+.post-pannel-ctrl {
+  background-color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="file"] {/* to hide the real input button */
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 0;height:0;
+}
+
+.img-upload-wrapper {
+  display: flex;
+}
+
+.img-upload { /* label *//* this is a button */
+  width: 4em;
+  cursor: pointer;
+  background: url("../../public/icons/image-plus.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.post-pannel-input {
+  display: block;
+  width: 100%;
+  height: 10em;
+  font-family: inherit;
+  resize: none;
+  border: 1px solid var(--first-color);
+}
+
+.img-loader-wrapper {
+  background-color: var(--third-color);
+  display: flex;
+  column-gap: var(--space1);
+  overflow-x: auto;
+  margin: var(--space1);
+}
+
+.img-loader-wrapper::after { /* padding doesn't show on "overflow: auto"-FF */
+  content: "";
+  display: block;
+  width: var(--space1);
+  flex-shrink: 0;
+}
+
+.img-loader {
+  flex: 0 0 auto;
+  background-color: var(--first-color);
+  color: var(--fourth-color);
+  display: flex;
+}
+
+.img-loader > .img {
+  --size: 5em;
+  width: var(--size);
+  height: var(--size);
+  background: var(--img-background);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.loading-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: var(--first-color);
+  padding: var(--space0);
+}
+
+.loading-bar {
+  --loading-bar-length: 0%;
+  height: 1em;
+  width: 7em;
+  background: var(--third-color);
+}
+
+.loading-bar::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: var(--loading-bar-length);
+  background: var(--second-color);
+}
+
+.loading-status {
+  display: flex;
+  justify-content: space-around;
+}
+
+.loading-status > span {
+  margin-right: var(--space0);
+}

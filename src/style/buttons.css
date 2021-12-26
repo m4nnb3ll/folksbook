@@ -1,0 +1,132 @@
+.btns-wrapper {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: var(--space1);
+}
+
+.btns-wrapper > :nth-child(1) {
+  border-top-right-radius: var(--space2);
+}
+
+.btns-wrapper > :nth-child(2) {
+  border-top-left-radius: var(--space2);
+}
+
+.btns-wrapper.stretcher {
+  margin: 0 calc(-1 * var(--padding-h)) calc(-1 * var(--padding-v));
+  margin-top: var(--stack-space);
+}
+
+.btns-wrapper.min {
+  min-width: initial;
+}
+
+.btns-wrapper > * {
+  flex: 1;
+  min-width: max-content;
+}
+
+.btn {
+  display: block;
+  color: var(--fourth-color);
+  background-color: var(--first-color);
+  font-size: var(--txt-normal);
+  font-family: inherit;
+  text-align: center;
+  padding: var(--space1) var(--space2);
+  margin-right: auto;margin-left: auto;
+}
+
+.btn.stretcher {
+  margin: 0 calc(-1 * var(--padding-h)) calc(-1 * var(--padding-v));
+  margin-top: var(--stack-space);
+  min-width: 100%;
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+.btn.submit {
+  color: var(--first-color);
+  background-color: var(--fourth-color);
+  border-radius: var(--space0);
+  /* to override the general effect of ".btn" */
+  min-width: initial;
+  padding: var(--space0) var(--space1);
+}
+
+.btn.round-corners {
+  border-radius: .5em;
+}
+
+.btn.danger {
+  border: 2px dashed red !important;
+  color: red !important;
+  background-color: #0000 !important;
+  text-transform: uppercase !important;
+  border-radius: initial !important;
+  transition: all .2s ease-in;
+}
+
+.btn.danger:hover {
+  border: 2px dashed #0000 !important;
+  color: var(--fourth-color) !important;
+  background-color: red !important;
+}
+
+.btn.trash {
+  min-width: initial;
+  position: absolute;
+  top:0;right:0;
+  --size: var(--space4);
+  width: var(--size);height: var(--size);
+  padding: initial;
+}
+
+.btn.trash * {
+  margin: initial;
+}
+
+.btn.liked {
+  color: var(--second-color-s);
+}
+
+.btn > i {
+  margin-right: var(--space0);
+}
+
+.btn > i.left {
+  margin-left: var(--space0);
+}
+
+button {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: initial;
+  color: currentColor;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: var(--second-color);
+}
+
+.profile-btns {
+  display: flex;
+}
+
+.profile-btns > * { /* to override global ".btn" rules */
+  min-width: initial;
+  margin-left: initial;
+  margin-right: initial;
+  border-radius: 0 0 var(--space2) 0;
+}
+
+.profile-btns > :nth-child(1){
+  margin-left: auto;
+  order: 2; /* in case there are 2 buttons so they don't stick to each other */
+  border-radius: 0 0 0 var(--space2);
+}
